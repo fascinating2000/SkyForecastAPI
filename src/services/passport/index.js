@@ -8,6 +8,7 @@ import User, { schema } from '../../api/user/model'
 
 export const password = () => (req, res, next) =>
   passport.authenticate('password', { session: false }, (err, user, info) => {
+    console.log(err);
     if (err && err.param) {
       return res.status(400).json(err)
     } else if (err || !user) {
@@ -18,9 +19,6 @@ export const password = () => (req, res, next) =>
       next()
     })
   })(req, res, next)
-
-export const master = () =>
-  passport.authenticate('master', { session: false })
 
 export const token = ({ required, roles = User.roles } = {}) => (req, res, next) =>
   passport.authenticate('token', { session: false }, (err, user, info) => {
@@ -50,14 +48,6 @@ passport.use('password', new BasicStrategy((email, password, done) => {
       return null
     }).catch(done)
   })
-}))
-
-passport.use('master', new BearerStrategy((token, done) => {
-  if (token === masterKey) {
-    done(null, {})
-  } else {
-    done(null, false)
-  }
 }))
 
 passport.use('token', new JwtStrategy({

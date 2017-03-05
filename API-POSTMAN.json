@@ -1,0 +1,88 @@
+{
+	"id": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
+	"name": "Weather Forecast RESTful API",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "76f72c13-9712-92f4-2804-02d99e35643a",
+			"name": "Auth",
+			"description": "",
+			"order": [
+				"14a2d66e-9ea3-33ec-aeda-02c1e82fd537"
+			],
+			"owner": "1088860"
+		},
+		{
+			"id": "d5ecefad-e0e5-5ee9-0ab1-b47aa741a450",
+			"name": "User Management",
+			"description": "",
+			"order": [
+				"274bb342-308e-4666-4168-cdb70041699f"
+			],
+			"owner": "1088860"
+		}
+	],
+	"timestamp": 1487644661850,
+	"owner": "1088860",
+	"public": false,
+	"requests": [
+		{
+			"id": "14a2d66e-9ea3-33ec-aeda-02c1e82fd537",
+			"headers": "Authorization: Basic dGVzdEB0ZXN0LmNvbTpwYXNzd29yZA==\n",
+			"url": "{{host}}/auth",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1488751381898,
+			"name": "Request Access Token",
+			"description": "",
+			"collectionId": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
+			"responses": []
+		},
+		{
+			"id": "274bb342-308e-4666-4168-cdb70041699f",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "{{host}}/users",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "Zack",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "test@test.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1488591145727,
+			"name": "Register New User",
+			"description": "",
+			"collectionId": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
+			"responses": []
+		}
+	]
+}

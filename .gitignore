@@ -4,6 +4,7 @@ public
 .tmp
 .idea
 .log
+.vscode
 dist
 docs
 .env
