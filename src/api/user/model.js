@@ -21,7 +21,7 @@ const userSchema = new Schema({
         minlength: 6
     },
     name: {
-        type: String,        
+        type: String,
         required: true,
         trim: true
     },
@@ -33,7 +33,8 @@ const userSchema = new Schema({
     picture: {
         type: String,
         trim: true
-    }
+    },
+    history: []
 }, {
     timestamps: true
 })
@@ -61,7 +62,7 @@ userSchema.pre('save', function(next) {
 userSchema.methods = {
     view(full) {
         let view = {}
-        let fields = ['id', 'name', 'picture']
+        let fields = ['id', 'name', 'picture', 'history']
 
         if (full) {
             fields = [...fields, 'email', 'createdAt']
