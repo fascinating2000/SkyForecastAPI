@@ -14,11 +14,21 @@
 			"owner": "1088860"
 		},
 		{
+			"id": "e262ffe5-e5b2-e8f3-72f4-7854dbe1e96d",
+			"name": "Forecast",
+			"description": "",
+			"order": [
+				"f998da1c-f0ba-2fdf-a60a-fff3018aae0b"
+			],
+			"owner": "1088860"
+		},
+		{
 			"id": "d5ecefad-e0e5-5ee9-0ab1-b47aa741a450",
 			"name": "User Management",
 			"description": "",
 			"order": [
-				"274bb342-308e-4666-4168-cdb70041699f"
+				"274bb342-308e-4666-4168-cdb70041699f",
+				"a5c55d84-487c-ea24-9d8a-62109c5dca7e"
 			],
 			"owner": "1088860"
 		}
@@ -83,6 +93,66 @@
 			"description": "",
 			"collectionId": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
 			"responses": []
+		},
+		{
+			"id": "a5c55d84-487c-ea24-9d8a-62109c5dca7e",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Bearer {{token}}\n",
+			"url": "{{host}}/users/history",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "place",
+					"value": "New York",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1489115995055,
+			"name": "Add Search Search",
+			"description": "",
+			"collectionId": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
+			"responses": []
+		},
+		{
+			"id": "f998da1c-f0ba-2fdf-a60a-fff3018aae0b",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Bearer {{token}}\n",
+			"url": "{{host}}/forecast",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "61f7c2b9-598a-baf0-1d67-d1dee2a0a162",
+			"data": [
+				{
+					"key": "lat",
+					"value": "40.000787",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lng",
+					"value": "124.354451",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Request Forecast",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1489110428152,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e262ffe5-e5b2-e8f3-72f4-7854dbe1e96d"
 		}
 	]
 }
