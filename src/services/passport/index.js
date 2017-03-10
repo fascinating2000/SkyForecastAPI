@@ -8,7 +8,6 @@ import User, { schema } from '../../api/user/model'
 
 export const password = () => (req, res, next) =>
   passport.authenticate('password', { session: false }, (err, user, info) => {
-    console.log(err);
     if (err && err.param) {
       return res.status(400).json(err)
     } else if (err || !user) {
