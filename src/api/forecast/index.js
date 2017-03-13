@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { index } from './controller'
 import { updateHistory } from '../user/controller'
@@ -16,6 +17,20 @@ const router = new Router()
  */
 router.post('/',
     token({ required: true }),
+    body({
+        place: {
+            required: true,
+            type: String
+        },
+        lat: {            
+            type: Number,
+            required: true
+        },
+        lng:{
+            type: Number,
+            required: true
+        }
+    }),
     updateHistory(true),
     index)
 
