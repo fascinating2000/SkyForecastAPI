@@ -35,27 +35,31 @@ export const create = ({ bodymen: { body } }, res, next) =>
         }
     })
 
-export const update = ({ bodymen: { body }, params, user }, res, next) =>
-    User.findById(params.id === 'me' ? user.id : params.id)
-    .then(notFound(res))
-    .then((result) => {
-        if (!result) return null
-        const isAdmin = user.role === 'admin'
-        const isSelfUpdate = user.id === result.id
-        if (!isSelfUpdate && !isAdmin) {
-            res.status(401).json({
-                valid: false,
-                message: 'You can\'t change other user\'s data'
-            })
-            return null
-        }
-        return result
-    })
-    .then((user) => user ? _.merge(user, body).save() : null)
-    .then((user) => user ? user.view(true) : null)
-    .then(success(res))
-    .catch(next)
+export const update = ({ bodymen: { body }, params, user }, res, next) => {
+    if (body.email === undefined && body.name === undefined && body.picutre === undefined) {
+        res.status(401).json({ valid: false, message: "Need Any Update params" })
+    }
 
+    User.findById(params.id === 'me' ? user.id : params.id)
+        .then(notFound(res))
+        .then((result) => {
+            if (!result) return null
+            const isAdmin = user.role === 'admin'
+            const isSelfUpdate = user.id === result.id
+            if (!isSelfUpdate && !isAdmin) {
+                res.status(401).json({
+                    valid: false,
+                    message: 'You can\'t change other user\'s data'
+                })
+                return null
+            }
+            return result
+        })
+        .then((user) => user ? _.merge(user, body).save() : null)
+        .then((user) => user ? user.view(true) : null)
+        .then(success(res))
+        .catch(next)
+}
 export const updatePassword = ({ bodymen: { body }, params, user }, res, next) =>
     User.findById(params.id === 'me' ? user.id : params.id)
     .then(notFound(res))
@@ -84,7 +88,7 @@ export const destroy = ({ params }, res, next) =>
     .then(success(res, 204))
     .catch(next)
 export const updateHistory = (isMiddleWare = false) => (req, res, next) => {
-    
+
     let { body: { place }, user } = req
 
     if (user.history.length >= 20) {

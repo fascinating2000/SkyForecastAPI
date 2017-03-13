@@ -80,9 +80,21 @@ router.post('/',
  */
 router.put('/:id',
   token({ required: true }),
-  body({ name, picture }),
-  update)
-
+    body({
+        email: {
+            type: String,
+            match: /^\S+@\S+\.\S+$/,
+            unique: true,
+            trim: true,
+            lowercase: true
+        },
+        name: {
+            type: String,
+            trim: true
+        },
+        picture
+    }),
+    update)
 /**
  * @api {put} /users/:id/password Update password
  * @apiName UpdatePassword
