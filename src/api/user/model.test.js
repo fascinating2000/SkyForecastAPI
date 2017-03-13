@@ -8,12 +8,7 @@ beforeEach(async () => {
 })
 
 describe('set email', () => {
-  it('sets name automatically', () => {
-    user.name = ''
-    user.email = 'test@example.com'
-    expect(user.name).toBe('test')
-  })
-
+  
   it('sets picture automatically', () => {
     const hash = crypto.createHash('md5').update(user.email).digest('hex')
     expect(user.picture).toBe(`https://gravatar.com/avatar/${hash}?d=identicon`)
