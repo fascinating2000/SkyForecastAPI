@@ -27,7 +27,7 @@ const config = {
     ip: process.env.IP || '0.0.0.0',
     jwtSecret: requireProcessEnv('JWT_SECRET'),
     googleApiKey: requireProcessEnv('GOOGLE_KEY'),
-    darkSkyKey : requireProcessEnv('DARKSKY_KEY'),
+    darkSkyKey: requireProcessEnv('DARKSKY_KEY'),
     mongo: {
       options: {
         db: {

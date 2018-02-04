@@ -9,7 +9,7 @@ const app = () => express(routes)
 let user
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456', name: 'Tester'})
+  user = await User.create({email: 'a@a.com', password: '123456', name: 'Tester'})
 })
 
 test('POST /auth 201', async () => {
@@ -35,7 +35,7 @@ test('POST /auth 400 - invalid email', async () => {
 
 test('POST /auth 400 - invalid password', async () => {
   const { status, body } = await request(app())
-    .post('/')    
+    .post('/')
     .auth('a@a.com', '123')
   expect(status).toBe(400)
   expect(typeof body).toBe('object')
