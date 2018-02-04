@@ -13,11 +13,15 @@
     "prod": "cross-env NODE_ENV=production nodemon -i \"*.test.js\" -r dotenv-safe/config .",
     "lint": "eslint src",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
-    "postdocs": "opn docs/index.html"
+    "postdocs": "opn docs/index.html",
+    "precommit": "lint-staged && npm test"
   },
   "jest": {
     "testEnvironment": "node",
     "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
@@ -28,7 +32,9 @@
     "eslint-config-standard": "^6.0.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^2.0.0",
+    "husky": "^0.14.3",
     "jest-cli": "^18.1.0",
+    "lint-staged": "^6.1.0",
     "mockgoose": "^6.0.8",
     "nock": "^9.0.2",
     "nodemon": "^1.10.2",
