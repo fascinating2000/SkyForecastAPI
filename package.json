@@ -21,7 +21,7 @@
     "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
+    "*.js": ["prettier --write","eslint --fix", "git add"]
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
