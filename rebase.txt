@@ -1,1 +1,2 @@
 This is test for rebasing
+Edit from master for rebasing
