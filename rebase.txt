@@ -1,2 +1,3 @@
 This is test for rebasing
-Edit from master for rebasing
+Edit from rebase branch solving conflict with master
+Edit from rebase branch again
