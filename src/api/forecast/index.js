@@ -16,22 +16,22 @@ const router = new Router()
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
 router.post('/',
-    token({ required: true }),
-    body({
-        place: {
-            required: true,
-            type: String
-        },
-        lat: {            
-            type: Number,
-            required: true
-        },
-        lng:{
-            type: Number,
-            required: true
-        }
-    }),
-    updateHistory(true),
-    index)
+  token({ required: true }),
+  body({
+    place: {
+      required: true,
+      type: String
+    },
+    lat: {
+      type: Number,
+      required: true
+    },
+    lng: {
+      type: Number,
+      required: true
+    }
+  }),
+  updateHistory(true),
+  index)
 
 export default router
