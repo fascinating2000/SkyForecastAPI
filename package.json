@@ -32,6 +32,7 @@
     "mockgoose": "^6.0.8",
     "nock": "^9.0.2",
     "nodemon": "^1.10.2",
+    "prettier": "^1.10.2",
     "sinon": "^1.17.5",
     "supertest": "^2.0.0"
   },
